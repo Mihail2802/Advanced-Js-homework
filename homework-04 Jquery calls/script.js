@@ -5,13 +5,16 @@ $(document).ready(function () {
   let weight = document.getElementById("weight");
   let eyeColor = document.getElementById("eyeColor");
   let hairColor = document.getElementById("hairColor");
+
   submitBtn.addEventListener("click", function () {
     $.ajax({
       url: "https://swapi.dev/api/people/1",
       contentType: "application/json",
       type: "get",
+
       success: function (response) {
         let responseObject = response;
+        
         resultTitle.innerText = responseObject.name;
         height.innerText = responseObject.height;
         weight.innerText = responseObject.mass;
@@ -20,6 +23,7 @@ $(document).ready(function () {
 
         console.log("success");
       },
+
       error: function (error) {
         console.log(error);
       },

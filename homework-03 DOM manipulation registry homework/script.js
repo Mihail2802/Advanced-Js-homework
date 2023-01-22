@@ -71,7 +71,7 @@ function createTableBody(tbl) {
     let tdPriority = document.createElement("td");
     let tdDescription = document.createElement("td");
 
-    tdTitle.innerHTML = `<span style = "color: ${reminder.color}">${reminder.title}</span>`;
+    tdTitle.innerHTML = `<span style = "color: ${reminder.color}">${reminder.title}</span>`; // tuka nastana problem kade sto celo pole bese crveno pa imase mala improvizacija so span za tekstot da bide samo vo boja
     tdPriority.innerText = reminder.priority;
     tdDescription.innerText = reminder.description;
 
