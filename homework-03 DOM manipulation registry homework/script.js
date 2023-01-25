@@ -12,6 +12,9 @@ function Reminder(title, priority, color, description) {
   this.priority = priority;
   this.color = color;
   this.description = description;
+  this.checkIfValid = () => {
+    return this.title && this.priority;
+  };
 }
 
 createReminderBtn.addEventListener("click", () => {
@@ -21,7 +24,10 @@ createReminderBtn.addEventListener("click", () => {
     colorElem.value,
     description.value
   );
-
+  if (!newReminder.checkIfValid()) {
+    resetForm();
+    alert("please enter title and priority");
+  }
   reminders.push(newReminder);
 
   resetForm();
@@ -71,7 +77,10 @@ function createTableBody(tbl) {
     let tdPriority = document.createElement("td");
     let tdDescription = document.createElement("td");
 
-    tdTitle.innerHTML = `<span style = "color: ${reminder.color}">${reminder.title}</span>`; // tuka nastana problem kade sto celo pole bese crveno pa imase mala improvizacija so span za tekstot da bide samo vo boja
+    tdTitle.innerText = reminder.title;
+    tdTitle.style.color = reminder.color;
+
+    // tdTitle.innerHTML = `<span style = "color: ${reminder.color}">${reminder.title}</span>`; // tuka nastana problem kade sto celo pole bese crveno pa imase mala improvizacija so span za tekstot da bide samo vo boja
     tdPriority.innerText = reminder.priority;
     tdDescription.innerText = reminder.description;
 
