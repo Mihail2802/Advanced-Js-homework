@@ -27,7 +27,9 @@ createReminderBtn.addEventListener("click", () => {
   if (!newReminder.checkIfValid()) {
     resetForm();
     alert("please enter title and priority");
+    return;
   }
+  
   reminders.push(newReminder);
 
   resetForm();
